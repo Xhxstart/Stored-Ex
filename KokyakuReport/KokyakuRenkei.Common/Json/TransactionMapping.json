@@ -1,0 +1,438 @@
+﻿[
+  {
+    "FormatId": "000000001",
+    "ControlList": [
+      {
+        "ControlId": "item1",
+        "ControlNm": "品目マスタ_品目コード",
+        "ReportDataKey": "品目マスタ_品目コード"
+      },
+      {
+        "ControlId": "item2",
+        "ControlNm": "場所",
+        "ReportDataKey": "場所"
+      },
+      {
+        "ControlId": "item3",
+        "ControlNm": "面談者",
+        "ReportDataKey": "面談者"
+      },
+      {
+        "ControlId": "item4",
+        "ControlNm": "取引先略称",
+        "ReportDataKey": "取引先略称"
+      },
+      {
+        "ControlId": "item5",
+        "ControlNm": "対応時刻FROM",
+        "ReportDataKey": "対応時刻FROM"
+      },
+      {
+        "ControlId": "item6",
+        "ControlNm": "取引先コード",
+        "ReportDataKey": "取引先コード"
+      },
+      {
+        "ControlId": "item7",
+        "ControlNm": "顧客マスタ連携",
+        "ReportDataKey": "顧客マスタ連携"
+      },
+      {
+        "ControlId": "item8",
+        "ControlNm": "連携対象",
+        "ReportDataKey": "連携対象"
+      },
+      {
+        "ControlId": "item9",
+        "ControlNm": "確認日付",
+        "ReportDataKey": "確認日付"
+      },
+      {
+        "ControlId": "item10",
+        "ControlNm": "目的",
+        "ReportDataKey": "目的"
+      },
+      {
+        "ControlId": "item11",
+        "ControlNm": "報告区分",
+        "ReportDataKey": "報告区分"
+      },
+      {
+        "ControlId": "item12",
+        "ControlNm": "見込ランク",
+        "ReportDataKey": "見込ランク"
+      },
+      {
+        "ControlId": "item13",
+        "ControlNm": "上長コメント",
+        "ReportDataKey": "上長コメント"
+      },
+      {
+        "ControlId": "item14",
+        "ControlNm": "別途報告要",
+        "ReportDataKey": "別途報告要"
+      },
+      {
+        "ControlId": "item15",
+        "ControlNm": "日付",
+        "ReportDataKey": "日付"
+      },
+      {
+        "ControlId": "item16",
+        "ControlNm": "案件区分",
+        "ReportDataKey": "案件区分"
+      },
+      {
+        "ControlId": "item17",
+        "ControlNm": "報告・対策",
+        "ReportDataKey": "報告・対策"
+      },
+      {
+        "ControlId": "item18",
+        "ControlNm": "品目名テキスト",
+        "ReportDataKey": "品目名テキスト"
+      },
+      {
+        "ControlId": "item19",
+        "ControlNm": "アクションプラン",
+        "ReportDataKey": "アクションプラン"
+      },
+      {
+        "ControlId": "item20",
+        "ControlNm": "宿題",
+        "ReportDataKey": "宿題"
+      },
+      {
+        "ControlId": "item21",
+        "ControlNm": "対応時刻TO",
+        "ReportDataKey": "対応時刻TO"
+      },
+      {
+        "ControlId": "item22",
+        "ControlNm": "品目マスタ_品目名称",
+        "ReportDataKey": "品目マスタ_品目名称"
+      },
+      {
+        "ControlId": "item23",
+        "ControlNm": "次回の行動内容",
+        "ReportDataKey": "次回の行動内容"
+      },
+      {
+        "ControlId": "item24",
+        "ControlNm": "確認上長名",
+        "ReportDataKey": "確認上長名"
+      },
+      {
+        "ControlId": "item25",
+        "ControlNm": "実施内容",
+        "ReportDataKey": "実施内容"
+      },
+      {
+        "ControlId": "item26",
+        "ControlNm": "獲得月",
+        "ReportDataKey": "獲得月"
+      },
+      {
+        "ControlId": "item27",
+        "ControlNm": "進捗状況",
+        "ReportDataKey": "進捗状況"
+      },
+      {
+        "ControlId": "item28",
+        "ControlNm": "format_id",
+        "ReportDataKey": "format_id"
+      },
+      {
+        "ControlId": "item29",
+        "ControlNm": "format_name",
+        "ReportDataKey": "format_name"
+      },
+      {
+        "ControlId": "item30",
+        "ControlNm": "report_id",
+        "ReportDataKey": "report_id"
+      },
+      {
+        "ControlId": "item31",
+        "ControlNm": "group_id",
+        "ReportDataKey": "group_id"
+      },
+      {
+        "ControlId": "item32",
+        "ControlNm": "group_name",
+        "ReportDataKey": "group_name"
+      },
+      {
+        "ControlId": "item33",
+        "ControlNm": "instruction_answer",
+        "ReportDataKey": "instruction_answer"
+      },
+      {
+        "ControlId": "item34",
+        "ControlNm": "approve_status",
+        "ReportDataKey": "approve_status"
+      },
+      {
+        "ControlId": "item35",
+        "ControlNm": "user_id",
+        "ReportDataKey": "user_id"
+      },
+      {
+        "ControlId": "item36",
+        "ControlNm": "user_name",
+        "ReportDataKey": "user_name"
+      },
+      {
+        "ControlId": "item37",
+        "ControlNm": "create_dt",
+        "ReportDataKey": "create_dt"
+      },
+      {
+        "ControlId": "item38",
+        "ControlNm": "last_update_dt",
+        "ReportDataKey": "last_update_dt"
+      },
+      {
+        "ControlId": "item39",
+        "ControlNm": "images",
+        "ReportDataKey": "images"
+      }
+    ],
+    "UpdTableList": [
+      {
+        "TableNm": "KK_TBL_DAILYREPORT",
+        "ColumnList": [
+          {
+            "ColumnNm": "REPORT_NO",
+            "RefReportDataKey": "report_id",
+            "Condition": true
+          },
+          {
+            "ColumnNm": "GROUP_ID",
+            "RefReportDataKey": "group_id"
+          },
+          {
+            "ColumnNm": "GROUP_NAME",
+            "RefReportDataKey": "group_name"
+          },
+          {
+            "ColumnNm": "INSTRUCTION_ANSWER",
+            "RefReportDataKey": "instruction_answer"
+          },
+          {
+            "ColumnNm": "APPROVE_STATUS",
+            "RefReportDataKey": "approve_status"
+          },
+          {
+            "ColumnNm": "USER_ID",
+            "RefReportDataKey": "user_id"
+          },
+          {
+            "ColumnNm": "USER_NAME",
+            "RefReportDataKey": "user_name"
+          },
+          {
+            "ColumnNm": "CREATE_DT",
+            "RefReportDataKey": "create_dt"
+          },
+          {
+            "ColumnNm": "LAST_UPDATE_DT",
+            "RefReportDataKey": "last_update_dt"
+          },
+          {
+            "ColumnNm": "COL01",
+            "RefReportDataKey": "日付"
+          },
+          {
+            "ColumnNm": "COL02",
+            "RefReportDataKey": "group_name"
+          },
+          {
+            "ColumnNm": "COL03",
+            "RefReportDataKey": "user_name"
+          },
+          {
+            "ColumnNm": "COL04",
+            "RefReportDataKey": "対応時刻FROM"
+          },
+          {
+            "ColumnNm": "COL05",
+            "RefReportDataKey": "対応時刻TO"
+          },
+          {
+            "ColumnNm": "COL06",
+            "RefReportDataKey": "場所"
+          },
+          {
+            "ColumnNm": "COL07",
+            "RefReportDataKey": "目的"
+          },
+          {
+            "ColumnNm": "COL08",
+            "RefReportDataKey": "報告区分"
+          },
+          {
+            "ColumnNm": "COL09",
+            "RefReportDataKey": "アクションプラン"
+          },
+          {
+            "ColumnNm": "COL10",
+            "RefReportDataKey": "取引先コード"
+          },
+          {
+            "ColumnNm": "COL11",
+            "RefReportDataKey": "取引先略称"
+          },
+          {
+            "ColumnNm": "COL12",
+            "RefReportDataKey": "顧客マスタ連携"
+          },
+          {
+            "ColumnNm": "COL13",
+            "RefReportDataKey": "連携対象"
+          },
+          {
+            "ColumnNm": "COL14",
+            "RefReportDataKey": "面談者"
+          },
+          {
+            "ColumnNm": "COL15",
+            "RefReportDataKey": "品目マスタ_品目コード"
+          },
+          {
+            "ColumnNm": "COL16",
+            "RefReportDataKey": "品目マスタ_品目名称"
+          },
+          {
+            "ColumnNm": "COL17",
+            "RefReportDataKey": "品目名テキスト"
+          },
+          {
+            "ColumnNm": "COL18",
+            "RefReportDataKey": "案件区分"
+          },
+          {
+            "ColumnNm": "COL19",
+            "RefReportDataKey": "見込ランク"
+          },
+          {
+            "ColumnNm": "COL20",
+            "RefReportDataKey": "進捗状況"
+          },
+          {
+            "ColumnNm": "COL21",
+            "RefReportDataKey": "実施内容"
+          },
+          {
+            "ColumnNm": "COL22",
+            "RefReportDataKey": "宿題"
+          },
+          {
+            "ColumnNm": "COL23",
+            "RefReportDataKey": "報告・対策"
+          },
+          {
+            "ColumnNm": "COL24",
+            "RefReportDataKey": "次回の行動内容"
+          },
+          {
+            "ColumnNm": "COL25",
+            "RefReportDataKey": "獲得月"
+          },
+          {
+            "ColumnNm": "COL26",
+            "RefReportDataKey": "確認日付"
+          },
+          {
+            "ColumnNm": "COL27",
+            "RefReportDataKey": "確認上長名"
+          },
+          {
+            "ColumnNm": "COL28",
+            "RefReportDataKey": "上長コメント"
+          },
+          {
+            "ColumnNm": "COL29",
+            "RefReportDataKey": "別途報告要"
+          },
+          {
+            "ColumnNm": "COL30"
+          },
+          {
+            "ColumnNm": "COL31",
+            "RefReportDataKey": "品目マスタ_品目名称"
+          },
+          {
+            "ColumnNm": "COL32"
+          }
+          {
+            "ColumnNm": "COL33"
+          },
+          {
+            "ColumnNm": "COL34"
+          },
+          {
+            "ColumnNm": "COL35"
+          },
+          {
+            "ColumnNm": "COL36"
+          },
+          {
+            "ColumnNm": "COL37"
+          },
+          {
+            "ColumnNm": "COL38"
+          },
+          {
+            "ColumnNm": "COL39"
+          },
+          {
+            "ColumnNm": "COL40"
+          },
+          {
+            "ColumnNm": "COL41"
+          },
+          {
+            "ColumnNm": "COL42"
+          },
+          {
+            "ColumnNm": "COL43"
+          },
+          {
+            "ColumnNm": "COL44"
+          },
+          {
+            "ColumnNm": "COL45"
+          },
+          {
+            "ColumnNm": "COL46"
+          },
+          {
+            "ColumnNm": "COL47"
+          },
+          {
+            "ColumnNm": "COL48"
+          },
+          {
+            "ColumnNm": "COL49"
+          },
+          {
+            "ColumnNm": "COL50"
+          }
+        ]
+      }
+    ],
+    "DelTableList": [
+      {
+        "TableNm": "KK_TBL_DAILYREPORT",
+        "ColumnList": [
+          {
+            "ColumnNm": "REPORT_NO",
+            "RefReportDataKey": "report_id",
+            "Condition": true
+          }
+        ]
+      }
+    ]
+  }
+]

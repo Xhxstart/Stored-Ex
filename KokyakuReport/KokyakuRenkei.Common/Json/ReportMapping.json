@@ -1,0 +1,361 @@
+﻿[
+  {
+    "ReportId": "KBHC020R",
+    "FormatId": "000000008",
+    "TableNm": "KK_JUCHU_VIEW",
+    "Condition": "DEL_FLG = '0'",
+    "ReportInfo": {
+      "BaseData": [
+        {
+          "ReportDataKey": "instruct_title",
+          "DefaultValue": "作成指示タイトルテスト"
+        },
+        {
+          "ReportDataKey": "instruct_contents",
+          "DefaultValue": "作成指示内容テスト"
+        },
+        {
+          "ReportDataKey": "instruct_answer",
+          "DefaultValue": "回答保留"
+        },
+        {
+          "ColumnNm": "JUCHU_NO",
+          "DempyoHdrFlag": true
+        },
+        {
+          "ReportDataKey": "user_id",
+          "DefaultValue": "test"
+        },
+        {
+          "ReportDataKey": "report_comment",
+          "DefaultValue": "テスト123"
+        }
+      ],
+      "ReportData": [
+        {
+          "ReportDataKey": "伝票ヘッダNo",
+          "ColumnNm": "JUCHU_NO",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "得意先",
+          "ColumnNm": "TOKUISAKI_NM",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "担当部署",
+          "ColumnNm": "BUSHO_NM",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "担当者",
+          "ColumnNm": "SHAIN_NM",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "請求先",
+          "ColumnNm": "SEIKYUSAKI_NM",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "請求日",
+          "ColumnNm": "SEIKYU_DATE",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "税区分",
+          "ColumnNm": "UCHIZEI_SOTOZEI_KBN",
+          "HdrDtlType": "Hdr",
+          "CD_SECTION": "000006"
+        },
+        {
+          "ReportDataKey": "出荷先",
+          "ColumnNm": "SHUKKASAKI_NM",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "出荷日",
+          "ColumnNm": "SHUKKA_YOTEI_DATE",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "摘要",
+          "ColumnNm": "TEKIYO_HDR",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "複数選択テスト",
+          "ColumnNm": "FUKUSU_SENTAKU",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "単一選択テスト",
+          "ColumnNm": "TANITSU_SENTAKU",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "品目コード",
+          "ColumnNm": "HINMOKU_CD",
+          "HdrDtlType": "Dtl"
+        },
+        {
+          "ReportDataKey": "品目名",
+          "ColumnNm": "HINMOKU_NM",
+          "HdrDtlType": "Dtl"
+        },
+        {
+          "ReportDataKey": "倉庫",
+          "ColumnNm": "SOKO_NM",
+          "HdrDtlType": "Dtl"
+        },
+        {
+          "ReportDataKey": "入数",
+          "ColumnNm": "IRISU",
+          "HdrDtlType": "Dtl"
+        },
+        {
+          "ReportDataKey": "箱数",
+          "ColumnNm": "HAKOSU",
+          "HdrDtlType": "Dtl"
+        },
+        {
+          "ReportDataKey": "数量",
+          "ColumnNm": "SURYO",
+          "HdrDtlType": "Dtl"
+        },
+        {
+          "ReportDataKey": "荷姿",
+          "ColumnNm": "TANI_NM",
+          "HdrDtlType": "Dtl"
+        },
+        {
+          "ReportDataKey": "単価",
+          "ColumnNm": "TANKA",
+          "HdrDtlType": "Dtl"
+        },
+        {
+          "ReportDataKey": "摘要",
+          "ColumnNm": "TEKIYO_DTL",
+          "HdrDtlType": "Dtl"
+        }
+      ],
+      "ImageData": [
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo1",
+            "HdrDtlType": "Hdr"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_1",
+            "HdrDtlType": "Hdr",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ],
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo2",
+            "HdrDtlType": "Hdr"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_2",
+            "HdrDtlType": "Hdr",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ],
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo3",
+            "HdrDtlType": "Dtl"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_1",
+            "HdrDtlType": "Dtl",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ],
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo4",
+            "HdrDtlType": "Dtl"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_2",
+            "HdrDtlType": "Dtl",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ],
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo5",
+            "HdrDtlType": "Dtl"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_3",
+            "HdrDtlType": "Dtl",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ],
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo6",
+            "HdrDtlType": "Dtl"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_4",
+            "HdrDtlType": "Dtl",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "ReportId": "KBHC010R",
+    "FormatId": "000000009",
+    "KAISHA_CD": "001",
+    "TableNm": "KK_MITSUMORI_VIEW",
+    "Condition": "DEL_FLG = '0'",
+    "ReportInfo": {
+      "BaseData": [
+        {
+          "ReportDataKey": "instruct_title",
+          "DefaultValue": "指示タイトル"
+        },
+        {
+          "ReportDataKey": "instruct_contents",
+          "DefaultValue": "指示内容"
+        },
+        {
+          "ReportDataKey": "instruct_answer",
+          "DefaultValue": "回答保留"
+        },
+        {
+          "ColumnNm": "MITSUMORI_NO",
+          "DempyoHdrFlag": true
+        },
+        {
+          "ReportDataKey": "user_id",
+          "DefaultValue": "test"
+        },
+        {
+          "ReportDataKey": "report_comment",
+          "DefaultValue": "テスト123"
+        }
+      ],
+      "ReportData": [
+        {
+          "ReportDataKey": "得意先",
+          "ColumnNm": "TOKUISAKI_NM",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "摘要",
+          "ColumnNm": "TEKIYO_HDR_1",
+          "HdrDtlType": "Hdr"
+        },
+        {
+          "ReportDataKey": "倉庫",
+          "ColumnNm": "SOKO_NM",
+          "HdrDtlType": "Dtl"
+        },
+        {
+          "ReportDataKey": "摘要",
+          "ColumnNm": "TEKIYO_DTL",
+          "HdrDtlType": "Dtl"
+        }
+      ],
+      "ImageData": [
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo1",
+            "HdrDtlType": "Hdr"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_1",
+            "HdrDtlType": "Hdr",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ],
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo2",
+            "HdrDtlType": "Hdr"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_2",
+            "HdrDtlType": "Hdr",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ],
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo3",
+            "HdrDtlType": "Dtl"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_1",
+            "HdrDtlType": "Dtl",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ],
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo4",
+            "HdrDtlType": "Dtl"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_2",
+            "HdrDtlType": "Dtl",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ],
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo5",
+            "HdrDtlType": "Dtl"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_3",
+            "HdrDtlType": "Dtl",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ],
+        [
+          {
+            "ReportDataKey": "name",
+            "DefaultValue": "photo6",
+            "HdrDtlType": "Dtl"
+          },
+          {
+            "ReportDataKey": "data",
+            "ColumnNm": "SHOHIN_GAZO_4",
+            "HdrDtlType": "Dtl",
+            "ImageRootPath": "C:\\BusinessPlus\\Application\\BusinessPlus"
+          }
+        ]
+      ]
+    }
+  }
+]

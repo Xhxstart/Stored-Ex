@@ -1,0 +1,50 @@
+﻿[
+  {
+    "ProcId": "001",
+    "TablesList": [
+      {
+        "MasterId": "TORIHIKISAKI",
+        "MasterNm": "TORIHIKISAKI",
+        "DestTableNm": "KK_MST_TORIHIKISAKI",
+        "SrcTableNm": "BC_MST_TORIHIKISAKI",
+        "ExtractKey": "TORIHIKISAKI_CD",
+        "Condition": "MUKOU_FLG='0' AND DEL_FLG='0'",
+        "UpdTmColumnNm": "UPD_TM",
+        "ColumnList": [
+          {
+            "DestColumnNm": "TORIHIKISAKI_CD",
+            "SrcColumnNm": "TORIHIKISAKI_CD",
+            "MasterHeaderNm": "取引先コード",
+            "BlankColumnSkipRowFlag": true
+          },
+          {
+            "DestColumnNm": "TORIHIKISAKI_SNM",
+            "SrcColumnNm": "TORIHIKISAKI_SNM",
+            "MasterHeaderNm": "取引先略称"
+          }
+        ]
+      },
+      {
+        "MasterId": "syohin",
+        "MasterNm": "syohin",
+        "DestTableNm": "KK_MST_HINMOKU",
+        "SrcTableNm": "BC_MST_HINMOKU",
+        "ExtractKey": "HINMOKU_CD",
+        "Condition": "MUKOU_FLG='0' AND DEL_FLG='0'",
+        "UpdTmColumnNm": "UPD_TM",
+        "ColumnList": [
+          {
+            "DestColumnNm": "HINMOKU_CD",
+            "SrcColumnNm": "HINMOKU_CD",
+            "MasterHeaderNm": "品目マスタ_品目コード"
+          },
+          {
+            "DestColumnNm": "HINMOKU_NM",
+            "SrcColumnNm": "HINMOKU_NM",
+            "MasterHeaderNm": "品目マスタ_品目名称"
+          }
+        ]
+      }
+    ]
+  }
+]
