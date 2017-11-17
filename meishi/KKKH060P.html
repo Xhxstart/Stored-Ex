@@ -1,0 +1,596 @@
+<!-- 名刺インポート -->
+<div id="P01" data-role="page" data-reform01="true">
+	<div data-role="header" data-position="fixed" data-theme="a">
+		<h1>名刺インポート</h1>
+	</div>
+
+	<div data-role="content" class="box-content-set">
+	<!-- 条件 -->
+	<div id="box-cond" class="box">
+		<div class="navbar-content">			
+			<div data-role="collapsible-set" data-theme="d" data-content-theme="b">
+			<div data-role="collapsible" data-collapsed="false" data-mini="true" data-theme="b">
+			<h3>インポート／一括設定</h3>
+			<div class="left-content">
+			<div class="ui-grid-a" style ="border:1px solid #000">
+			<table class="reform01-searchtable">									
+				<tr>
+					<th class="reform01-title" style="width:30%">
+	    				<label for="dtSc00001"><span style="width:50px;">&nbsp;&nbsp;&nbsp;&nbsp;</span>取得日一括設定</label>
+	    			</th>
+					<td class="reform01-text">
+						<div class="reform01-date">
+						<input id="dtSc00001" type="text" data-calendar="true" datatype="D" dataformat="[yyyy]/[MM]/[dd]" value="" data-mini="true" data-theme="c" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+		    		<th class="reform01-title" style="width:30%">
+						<label for="clSc00003"><span style="width:50px;">&nbsp;&nbsp;&nbsp;&nbsp;</span>担当者一括設定</label>
+					</th>
+					<td>
+						<codelib name="clSc00003" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136"
+							 title="社員一覧" table="VIEW_MST_SHAIN_SINGLE" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="cliShainCd" key="SHAIN_CD" title="社員コード" type="string" filter="clSc00003"></codeHeader>
+							<codeHeader name="cliShainNm" key="SHAIN_NM" title="社員名称" type="string"></codeHeader>
+							<codeHeader name="cliShainKana" key="SHAIN_KANA" title="社員カナ" type="string"></codeHeader>
+							<codeHeader name="cliBushoSnm" key="BUSHO_SNM" title="部署" type="string"></codeHeader>
+							<codeHeader name="cliShokui" key="SHOKUI" title="職位" type="string"></codeHeader>
+							<codeHeader name="cliBushoCd" key="BUSHO_CD" title="部署コード" type="string"></codeHeader>
+							</codelib>
+					</td>
+				</tr>
+				</table>
+				<table>	
+				<tr>													
+					<td class="reform01-text">
+					<form id="upFile" data-upload="true">
+						<div class="ui-block-b search-text" style="position:relative;left:10px;">							
+							<input id="fsFile" type="file" name="fsFile"  class="ui-label-sc" data-role="none" accept=".csv"/>
+						</div>						
+					</form>	
+					</td>
+				</tr>
+				</table>
+				<table>
+				<tr>				
+					<td class="reform01-text" style="width:100%">	
+					<span style="width:50px;">&nbsp;&nbsp;</span>			
+					<input type="button" id="btMeishiImport" value="名刺インポート" data-icon="star"						
+					data-mini="true" data-inline="true" data-theme="b" />	
+					<input type="button" id="btClear" value="クリア" data-icon="refresh"
+					data-mini="true" data-inline="true" data-theme="b" />
+					</td>	
+				</tr>		
+			</table>
+				</div>
+			</div>
+			<div class="left-content">
+				<div class="ui-grid-a" style ="border:1px solid #000">
+				<table class="reform01-searchtable">
+				<tr>
+		    		<th class="reform01-title" style="width:30%">
+						<label for="clSc00002"><span style="width:50px;">&nbsp;&nbsp;&nbsp;&nbsp;</span>顧客一括設定</label>
+					</th>
+					<td style="position:relative;left:10px;">
+						<codelib name="clSc00002" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136" 
+							title="顧客一覧" table="KK_VIEW_KIHONINFO_KOKYAKU" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="clSc00002" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="clSc00002"></codeHeader>
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCD" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiSnm" key="TORIHIKISAKI_SNM" title="取引先略称" type="string"></codeHeader>
+							</codelib>
+					</td>
+				</tr>
+				<tr>
+					<td class="reform01-text" style="width:100%">
+						<span style="width:50px;">&nbsp;&nbsp;</span>
+						<input type="button" id="btSetKokyaku" value="一括設定" data-icon="star"
+						data-mini="true" data-inline="true" data-theme="b" />
+					</td>
+				</tr>
+				</table>
+				</div>
+			</div>	
+			</div>	
+			</div>
+			</div>	
+
+		<!-- 結果一覧 -->
+		<div class="ui-bar-b right-content" style="margin-top: 0px;margin-bottom: 0px;">
+				結果一覧 （
+				<span id="lbCurrentCntS" datatype="N" dataformat="[#,###]"></span>
+				&nbsp;～&nbsp;
+				<span id="lbCurrentCntE" datatype="N" dataformat="[#,###]"></span>
+				&nbsp;／&nbsp;
+				<span id="lbTotalCnt" datatype="N" dataformat="[#,###]"></span>件）
+				<span id="CSVErrorMsg" class="redtext disnon">CSVファイルの修正が必要なエラーがあります。</span>
+			</div>
+				<div class="ui-bar-b btn-content" style="margin-top: 0px;margin-bottom: 0px;">
+				<div class="ui-grid-a">
+					<div class="ui-block-a">	
+						<div data-role="controlgroup" data-type="horizontal" style="position:relative;left:10px;">
+							<input type="button" id="btHdrLsFirst" value="<<" data-mini="true" data-theme="b" />
+							<input type="button" id="btHdrLsBack" value="<" data-mini="true" data-theme="b" />
+							<input type="button" id="btHdrLsNext" value=">" data-mini="true" data-theme="b" />
+							<input type="button" id="btHdrLsLast" value=">>" data-mini="true" data-theme="b" />
+						</div>
+					</div>
+					<div class="ui-block-b">
+						<div data-role="controlgroup" data-type="horizontal" class="div-right">						
+						</div>
+					</div>
+				</div>
+				</div>
+			
+				<table class="reform01-list reform01-table disnon" style="margin-top: 0px;margin-bottom: 0px;" id ="itiran" >
+					<tr class="reform01-table reform01-summary">
+						<th rowspan="3" style="width: 8%;">行番号</th>
+						<td rowspan="3" style="width: 5%;">
+							<span id="lsiLineNo1" class="info-text-bitlarge"></span>
+						</td>
+						<th style="width: 15%;">顧客名</th>
+						<td style="width: 20%;">	
+							<span id="lsiKokyakuNm1"></span>
+						</td>
+						<td style="width: 52%;">
+							<codelib name="lsiKokyakuNo1" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136" 
+							title="顧客一覧" table="KK_VIEW_KIHONINFO_KOKYAKU" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiKokyakuNo1" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo1"></codeHeader>
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCD" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiSnm" key="TORIHIKISAKI_SNM" title="取引先略称" type="string"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>相手先担当者</th>
+						<td>
+							<span id="lsiAitesakiTantoshaNM1"></span>
+							<span id="shinkiMsg1" class="redtext disnon">(新規追加)</span>
+						</td>
+						<td>
+							<codelib name="lsiAitesakiTantoshaCd1" code-div-class="reform01-codelibSet" url="Service.aspx" data-mini="true" labelWidth="136"
+							title="相手先担当者一覧" table="KK_VIEW_AITESAKI_TANTOSHA_FOR_MEISHIIMPORT" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiAitesakiTantoshaCd1" key="AITESAKI_TANTOSHA_CD" title="相手先担当者コード" type="string" filter="lsiAitesakiTantoshaCd1"></codeHeader>
+							<codeHeader name="clScAitesakiTantosha" key="AITESAKI_TANTOSHA_NM" title="相手先担当者名" type="string"></codeHeader>													
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCd" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="clScAitesakiTantoBusho" key="AITESAKI_TANTO_BUSHO_NM" title="相手先担当部署名" type="string"></codeHeader>
+							<codeHeader name="cliKokyakuNo" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo1"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>エラー内容</th>
+						<td colspan = "2">
+							<span id="lsiErrorMsg1" ></span>
+						</td>
+					</tr>
+					<tr class="reform01-table reform01-summary">
+						<th rowspan="3" style="width: 12%;">行番号</th>
+						<td rowspan="3" style="width: 8%;">
+							<span id="lsiLineNo2" class="info-text-bitlarge"></span>
+						</td>
+						<th style="width: 15%;">顧客名</th>
+						<td style="width: 20%;">
+							<span id="lsiKokyakuNm2"></span>
+						</td>
+						<td style="width: 45%;">
+							<codelib name="lsiKokyakuNo2" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136" 
+							title="顧客一覧" table="KK_VIEW_KIHONINFO_KOKYAKU" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiKokyakuNo2" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo2"></codeHeader>
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCD" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiSnm" key="TORIHIKISAKI_SNM" title="取引先略称" type="string"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>相手先担当者</th>
+						<td>
+							<span id="lsiAitesakiTantoshaNM2"></span>
+							<span id="shinkiMsg2" class="redtext disnon">(新規追加)</span>
+						</td>
+						<td>
+							<codelib name="lsiAitesakiTantoshaCd2" code-div-class="reform01-codelibSet" url="Service.aspx" data-mini="true" labelWidth="136"
+							title="相手先担当者一覧" table="KK_VIEW_AITESAKI_TANTOSHA_FOR_MEISHIIMPORT" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiAitesakiTantoshaCd2" key="AITESAKI_TANTOSHA_CD" title="相手先担当者コード" type="string" filter="lsiAitesakiTantoshaCd2"></codeHeader>
+							<codeHeader name="clScAitesakiTantosha" key="AITESAKI_TANTOSHA_NM" title="相手先担当者名" type="string"></codeHeader>													
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCd" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="clScAitesakiTantoBusho" key="AITESAKI_TANTO_BUSHO_NM" title="相手先担当部署名" type="string"></codeHeader>
+							<codeHeader name="cliKokyakuNo" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo2"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>エラー内容</th>
+						<td colspan = "2">
+							<span id="lsiErrorMsg2" ></span>
+						</td>
+					</tr>
+					<tr class="reform01-table reform01-summary">
+						<th rowspan="3" style="width: 12%;">行番号</th>
+						<td rowspan="3" style="width: 8%;">
+							<span id="lsiLineNo3" class="info-text-bitlarge"></span>
+						</td>
+						<th style="width: 15%;">顧客名</th>
+						<td style="width: 20%;">
+							<span id="lsiKokyakuNm3"></span>
+						</td>
+						<td style="width: 45%;">
+							<codelib name="lsiKokyakuNo3" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136" 
+							title="顧客一覧" table="KK_VIEW_KIHONINFO_KOKYAKU" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiKokyakuNo3" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo3"></codeHeader>
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCD" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiSnm" key="TORIHIKISAKI_SNM" title="取引先略称" type="string"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>相手先担当者</th>
+						<td>
+							<span id="lsiAitesakiTantoshaNM3"></span>
+							<span id="shinkiMsg3" class="redtext disnon">(新規追加)</span>
+						</td>
+						<td>
+							<codelib name="lsiAitesakiTantoshaCd3" code-div-class="reform01-codelibSet" url="Service.aspx" data-mini="true" labelWidth="136"
+							title="相手先担当者一覧" table="KK_VIEW_AITESAKI_TANTOSHA_FOR_MEISHIIMPORT" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiAitesakiTantoshaCd3" key="AITESAKI_TANTOSHA_CD" title="相手先担当者コード" type="string" filter="lsiAitesakiTantoshaCd3"></codeHeader>
+							<codeHeader name="clScAitesakiTantosha" key="AITESAKI_TANTOSHA_NM" title="相手先担当者名" type="string"></codeHeader>													
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCd" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="clScAitesakiTantoBusho" key="AITESAKI_TANTO_BUSHO_NM" title="相手先担当部署名" type="string"></codeHeader>
+							<codeHeader name="cliKokyakuNo" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo3"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>エラー内容</th>
+						<td colspan = "2">
+							<span id="lsiErrorMsg3" ></span>
+						</td>												
+					</tr>		
+					<tr class="reform01-table reform01-summary">
+						<th rowspan="3" style="width: 12%;">行番号</th>
+						<td rowspan="3" style="width: 8%;">
+							<span id="lsiLineNo4" class="info-text-bitlarge"></span>
+						</td>
+						<th style="width: 15%;">顧客名</th>
+						<td style="width: 20%;">
+							<span id="lsiKokyakuNm4"></span>
+						</td>
+						<td style="width: 45%;">
+							<codelib name="lsiKokyakuNo4" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136" 
+							title="顧客一覧" table="KK_VIEW_KIHONINFO_KOKYAKU" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiKokyakuNo4" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo4"></codeHeader>
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCD" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiSnm" key="TORIHIKISAKI_SNM" title="取引先略称" type="string"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>相手先担当者</th>
+						<td>
+							<span id="lsiAitesakiTantoshaNM4"></span>
+							<span id="shinkiMsg4" class="redtext disnon">(新規追加)</span>
+						</td>
+						<td>
+							<codelib name="lsiAitesakiTantoshaCd4" code-div-class="reform01-codelibSet" url="Service.aspx" data-mini="true" labelWidth="136"
+							title="相手先担当者一覧" table="KK_VIEW_AITESAKI_TANTOSHA_FOR_MEISHIIMPORT" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiAitesakiTantoshaCd4" key="AITESAKI_TANTOSHA_CD" title="相手先担当者コード" type="string" filter="lsiAitesakiTantoshaCd4"></codeHeader>
+							<codeHeader name="clScAitesakiTantosha" key="AITESAKI_TANTOSHA_NM" title="相手先担当者名" type="string"></codeHeader>													
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCd" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="clScAitesakiTantoBusho" key="AITESAKI_TANTO_BUSHO_NM" title="相手先担当部署名" type="string"></codeHeader>
+							<codeHeader name="cliKokyakuNo" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo4"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>エラー内容</th>
+						<td colspan = "2">
+							<span id="lsiErrorMsg4" ></span>
+						</td>												
+					</tr>		
+					<tr class="reform01-table reform01-summary">
+						<th rowspan="3" style="width: 12%;">行番号</th>
+						<td rowspan="3" style="width: 8%;">
+							<span id="lsiLineNo5" class="info-text-bitlarge"></span>
+						</td>
+						<th style="width: 15%;">顧客名</th>
+						<td style="width: 20%;">
+							<span id="lsiKokyakuNm5"></span>
+						</td>
+						<td style="width: 45%;">
+							<codelib name="lsiKokyakuNo5" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136" 
+							title="顧客一覧" table="KK_VIEW_KIHONINFO_KOKYAKU" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiKokyakuNo5" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo5"></codeHeader>
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCD" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiSnm" key="TORIHIKISAKI_SNM" title="取引先略称" type="string"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>相手先担当者</th>
+						<td>
+							<span id="lsiAitesakiTantoshaNM5"></span>
+							<span id="shinkiMsg5" class="redtext disnon">(新規追加)</span>
+						</td>
+						<td>
+							<codelib name="lsiAitesakiTantoshaCd5" code-div-class="reform01-codelibSet" url="Service.aspx" data-mini="true" labelWidth="136"
+							title="相手先担当者一覧" table="KK_VIEW_AITESAKI_TANTOSHA_FOR_MEISHIIMPORT" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiAitesakiTantoshaCd5" key="AITESAKI_TANTOSHA_CD" title="相手先担当者コード" type="string" filter="lsiAitesakiTantoshaCd5"></codeHeader>
+							<codeHeader name="clScAitesakiTantosha" key="AITESAKI_TANTOSHA_NM" title="相手先担当者名" type="string"></codeHeader>													
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCd" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="clScAitesakiTantoBusho" key="AITESAKI_TANTO_BUSHO_NM" title="相手先担当部署名" type="string"></codeHeader>
+							<codeHeader name="cliKokyakuNo" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo5"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>エラー内容</th>
+						<td colspan = "2">
+							<span id="lsiErrorMsg5" ></span>
+						</td>												
+					</tr>		
+					<tr class="reform01-table reform01-summary">
+						<th rowspan="3" style="width: 12%;">行番号</th>
+						<td rowspan="3" style="width: 8%;">
+							<span id="lsiLineNo6" class="info-text-bitlarge"></span>
+						</td>
+						<th style="width: 15%;">顧客名</th>
+						<td style="width: 20%;">
+							<span id="lsiKokyakuNm6"></span>
+						</td>
+						<td style="width: 45%;">
+							<codelib name="lsiKokyakuNo6" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136" 
+							title="顧客一覧" table="KK_VIEW_KIHONINFO_KOKYAKU" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiKokyakuNo6" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo6"></codeHeader>
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCD" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiSnm" key="TORIHIKISAKI_SNM" title="取引先略称" type="string"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>相手先担当者</th>
+						<td>
+							<span id="lsiAitesakiTantoshaNM6"></span>
+							<span id="shinkiMsg6" class="redtext disnon">(新規追加)</span>
+						</td>
+						<td>
+							<codelib name="lsiAitesakiTantoshaCd6" code-div-class="reform01-codelibSet" url="Service.aspx" data-mini="true" labelWidth="136"
+							title="相手先担当者一覧" table="KK_VIEW_AITESAKI_TANTOSHA_FOR_MEISHIIMPORT" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiAitesakiTantoshaCd6" key="AITESAKI_TANTOSHA_CD" title="相手先担当者コード" type="string" filter="lsiAitesakiTantoshaCd6"></codeHeader>
+							<codeHeader name="clScAitesakiTantosha" key="AITESAKI_TANTOSHA_NM" title="相手先担当者名" type="string"></codeHeader>													
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCd" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="clScAitesakiTantoBusho" key="AITESAKI_TANTO_BUSHO_NM" title="相手先担当部署名" type="string"></codeHeader>
+							<codeHeader name="cliKokyakuNo" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo6"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>エラー内容</th>
+						<td colspan = "2">
+							<span id="lsiErrorMsg6" ></span>
+						</td>												
+					</tr>			
+					<tr class="reform01-table reform01-summary">
+						<th rowspan="3" style="width: 12%;">行番号</th>
+						<td rowspan="3" style="width: 8%;">
+							<span id="lsiLineNo7" class="info-text-bitlarge"></span>
+						</td>
+						<th style="width: 15%;">顧客名</th>
+						<td style="width: 20%;">
+							<span id="lsiKokyakuNm7"></span>
+						</td>
+						<td style="width: 45%;">
+							<codelib name="lsiKokyakuNo7" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136" 
+							title="顧客一覧" table="KK_VIEW_KIHONINFO_KOKYAKU" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiKokyakuNo7" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo7"></codeHeader>
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCD" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiSnm" key="TORIHIKISAKI_SNM" title="取引先略称" type="string"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>相手先担当者</th>
+						<td>
+							<span id="lsiAitesakiTantoshaNM7"></span>
+							<span id="shinkiMsg7" class="redtext disnon">(新規追加)</span>
+						</td>
+						<td>
+							<codelib name="lsiAitesakiTantoshaCd7" code-div-class="reform01-codelibSet" url="Service.aspx" data-mini="true" labelWidth="136"
+							title="相手先担当者一覧" table="KK_VIEW_AITESAKI_TANTOSHA_FOR_MEISHIIMPORT" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiAitesakiTantoshaCd7" key="AITESAKI_TANTOSHA_CD" title="相手先担当者コード" type="string" filter="lsiAitesakiTantoshaCd7"></codeHeader>
+							<codeHeader name="clScAitesakiTantosha" key="AITESAKI_TANTOSHA_NM" title="相手先担当者名" type="string"></codeHeader>													
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCd" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="clScAitesakiTantoBusho" key="AITESAKI_TANTO_BUSHO_NM" title="相手先担当部署名" type="string"></codeHeader>
+							<codeHeader name="cliKokyakuNo" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo7"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>エラー内容</th>
+						<td colspan = "2">
+							<span id="lsiErrorMsg7" ></span>
+						</td>												
+					</tr>		
+					<tr class="reform01-table reform01-summary">
+						<th rowspan="3" style="width: 12%;">行番号</th>
+						<td rowspan="3" style="width: 8%;">
+							<span id="lsiLineNo8" class="info-text-bitlarge"></span>
+						</td>
+						<th style="width: 15%;">顧客名</th>
+						<td style="width: 20%;">
+							<span id="lsiKokyakuNm8"></span>
+						</td>
+						<td style="width: 45%;">
+							<codelib name="lsiKokyakuNo8" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136" 
+							title="顧客一覧" table="KK_VIEW_KIHONINFO_KOKYAKU" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiKokyakuNo8" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo8"></codeHeader>
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCD" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiSnm" key="TORIHIKISAKI_SNM" title="取引先略称" type="string"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>相手先担当者</th>
+						<td>
+							<span id="lsiAitesakiTantoshaNM8"></span>
+							<span id="shinkiMsg8" class="redtext disnon">(新規追加)</span>
+						</td>
+						<td>
+							<codelib name="lsiAitesakiTantoshaCd8" code-div-class="reform01-codelibSet" url="Service.aspx" data-mini="true" labelWidth="136"
+							title="相手先担当者一覧" table="KK_VIEW_AITESAKI_TANTOSHA_FOR_MEISHIIMPORT" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiAitesakiTantoshaCd8" key="AITESAKI_TANTOSHA_CD" title="相手先担当者コード" type="string" filter="lsiAitesakiTantoshaCd8"></codeHeader>
+							<codeHeader name="clScAitesakiTantosha" key="AITESAKI_TANTOSHA_NM" title="相手先担当者名" type="string"></codeHeader>													
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCd" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="clScAitesakiTantoBusho" key="AITESAKI_TANTO_BUSHO_NM" title="相手先担当部署名" type="string"></codeHeader>
+							<codeHeader name="cliKokyakuNo" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo8"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>エラー内容</th>
+						<td colspan = "2">
+							<span id="lsiErrorMsg8" ></span>
+						</td>												
+					</tr>			
+					<tr class="reform01-table reform01-summary">
+						<th rowspan="3" style="width: 12%;">行番号</th>
+						<td rowspan="3" style="width: 8%;">
+							<span id="lsiLineNo9" class="info-text-bitlarge"></span>
+						</td>
+						<th style="width: 15%;">顧客名</th>
+						<td style="width: 20%;">
+							<span id="lsiKokyakuNm9"></span>
+						</td>
+						<td style="width: 45%;">
+							<codelib name="lsiKokyakuNo9" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136" 
+							title="顧客一覧" table="KK_VIEW_KIHONINFO_KOKYAKU" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiKokyakuNo9" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo9"></codeHeader>
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCD" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiSnm" key="TORIHIKISAKI_SNM" title="取引先略称" type="string"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>相手先担当者</th>
+						<td>
+							<span id="lsiAitesakiTantoshaNM9"></span>
+							<span id="shinkiMsg9" class="redtext disnon">(新規追加)</span>
+						</td>
+						<td>
+							<codelib name="lsiAitesakiTantoshaCd9" code-div-class="reform01-codelibSet" url="Service.aspx" data-mini="true" labelWidth="136"
+							title="相手先担当者一覧" table="KK_VIEW_AITESAKI_TANTOSHA_FOR_MEISHIIMPORT" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiAitesakiTantoshaCd9" key="AITESAKI_TANTOSHA_CD" title="相手先担当者コード" type="string" filter="lsiAitesakiTantoshaCd9"></codeHeader>
+							<codeHeader name="clScAitesakiTantosha" key="AITESAKI_TANTOSHA_NM" title="相手先担当者名" type="string"></codeHeader>													
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCd" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="clScAitesakiTantoBusho" key="AITESAKI_TANTO_BUSHO_NM" title="相手先担当部署名" type="string"></codeHeader>
+							<codeHeader name="cliKokyakuNo" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo9"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>エラー内容</th>
+						<td colspan = "2">
+							<span id="lsiErrorMsg9" ></span>
+						</td>												
+					</tr>
+					<tr class="reform01-table reform01-summary">
+						<th rowspan="3" style="width: 12%;">行番号</th>
+						<td rowspan="3" style="width: 8%;">
+							<span id="lsiLineNo10" class="info-text-bitlarge"></span>
+						</td>
+						<th style="width: 15%;">顧客名</th>
+						<td style="width: 20%;">
+							<span id="lsiKokyakuNm10"></span>
+						</td>
+						<td style="width: 45%;">
+							<codelib name="lsiKokyakuNo10" code-div-class="reform01-codelibSet" label-class="cl-label" url="Service.aspx" data-mini="true" labelWidth="136" 
+							title="顧客一覧" table="KK_VIEW_KIHONINFO_KOKYAKU" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiKokyakuNo10" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo10"></codeHeader>
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCD" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiSnm" key="TORIHIKISAKI_SNM" title="取引先略称" type="string"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>相手先担当者</th>
+						<td>
+							<span id="lsiAitesakiTantoshaNM10"></span>
+							<span id="shinkiMsg10" class="redtext disnon">(新規追加)</span>
+						</td>
+						<td>
+							<codelib name="lsiAitesakiTantoshaCd10" code-div-class="reform01-codelibSet" url="Service.aspx" data-mini="true" labelWidth="136"
+							title="相手先担当者一覧" table="KK_VIEW_AITESAKI_TANTOSHA_FOR_MEISHIIMPORT" enableCode="true" boolWithLabel="true" maxDispCol="5">
+							<codeHeader name="lsiAitesakiTantoshaCd10" key="AITESAKI_TANTOSHA_CD" title="相手先担当者コード" type="string" filter="lsiAitesakiTantoshaCd10"></codeHeader>
+							<codeHeader name="clScAitesakiTantosha" key="AITESAKI_TANTOSHA_NM" title="相手先担当者名" type="string"></codeHeader>													
+							<codeHeader name="cliKokyakuNm" key="KOKYAKU_NM" title="顧客名" type="string"></codeHeader>
+							<codeHeader name="cliTorihikisakiCd" key="TORIHIKISAKI_CD" title="取引先コード" type="string"></codeHeader>
+							<codeHeader name="clScAitesakiTantoBusho" key="AITESAKI_TANTO_BUSHO_NM" title="相手先担当部署名" type="string"></codeHeader>
+							<codeHeader name="cliKokyakuNo" key="KOKYAKUKANRI_NO" title="顧客No" type="string" filter="lsiKokyakuNo10"></codeHeader>
+							</codelib>
+						</td>
+					</tr>
+					<tr class="reform01-summary">
+						<th>エラー内容</th>
+						<td colspan = "2">
+							<span id="lsiErrorMsg10" ></span>
+						</td>												
+					</tr>																								
+				</table>
+			
+			<div class="ui-bar-b btn-content" style="margin-top: 0px;margin-bottom: 0px;">
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<div data-role="controlgroup" data-type="horizontal"  style="position:relative;left:10px;">
+							<input type="button" id="btLsFirst" value="<<" data-mini="true" data-theme="b" />
+							<input type="button" id="btLsBack" value="<" data-mini="true" data-theme="b" />
+							<input type="button" id="btLsNext" value=">" data-mini="true" data-theme="b" />
+							<input type="button" id="btLsLast" value=">>" data-mini="true" data-theme="b" />
+						</div>
+					</div>
+					<div class="ui-block-b">
+						<div class="div-right">
+							<input type="button" id="btSetMeishiImport" value="登録" data-icon="star" data-mini="true" data-inline="true" data-theme="b" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 非表示項目  -->
+		<div class="disnon">
+			<span id="hlbUploadFileURL"></span>
+			<span id="hlbCntPerPage"></span>
+			<span id="hlbGetLineS"></span>
+			<span id="hlbGetLineE"></span>
+			<span id="hcbSc00001"></span>
+			<span id="hlErrorflg"></span>
+			<span id="hlErrorLine1"></span>
+			<span id="hlErrorLine2"></span>
+			<span id="hlErrorLine3"></span>
+			<span id="hlErrorLine4"></span>
+			<input type="button" id="btCheckMeishiImport" value="名刺データチェック" data-icon="star"
+			data-mini="true" data-inline="true" data-theme="b" />
+			<input type="button" id="btUpdateMeishiData" value="名刺データ登録" data-icon="star"
+			data-mini="true" data-inline="true" data-theme="b" />
+		</div>
+	</div>
+	<div data-role="footer" class="ui-bar" data-position="fixed" data-theme="a"></div>
+</div>
